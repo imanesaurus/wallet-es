@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Col, Container, Row } from "reactstrap";
-import { rightArrowPurpleIcon } from "../../assets/icons";
+import { Col, Container } from "reactstrap";
 import {
     category1,
     category2,
@@ -13,9 +12,9 @@ import {
 } from "../../assets/images";
 import { CategoryCard } from "../../components/Card/CategoryCard";
 import ContentCard from "../../components/Card/ContentCard";
-import Image from "../../components/Image";
-import { Label, SubLabel } from "../../components/Label";
+import { Label } from "../../components/Label";
 import ScreenContainer from "../../layout/Container/ScreenContainer";
+import { SectionLabel } from "./component";
 import ModalFilter from "./component/ModalFilter";
 import SearchBarHome from "./component/SearchBar";
 import { SearchBarContainer } from "./component/SearchBarContainer";
@@ -28,6 +27,16 @@ const recentData = [
         totalUsers: 200,
         img: content1,
     },
+    {
+        id: 2,
+        title: "Docu Sign",
+        content: "sign smart contracts seamlessly",
+        totalUsers: 1700,
+        img: content2,
+    },
+];
+
+const trendingData = [
     {
         id: 2,
         title: "Docu Sign",
@@ -154,8 +163,8 @@ const filterData = [
     },
 ];
 
-const RecentContent = () => {
-    return recentData.map((item) => {
+const RecentContent = ({ data }) => {
+    return data.map((item) => {
         return <ContentCard key={`${item.id}`} data={item} />;
     });
 };
@@ -216,33 +225,15 @@ const Home = () => {
                         />
                     )}
                     <Label title="Recent Experiences" />
-                    <RecentContent />
+                    <RecentContent data={recentData} />
 
-                    <Row className="flex justify-between items-center">
-                        <Container>
-                            <Label title="Popular Categories" />
-                        </Container>
-                        <Row className="flex items-center">
-                            <Container className="w-10 mr-2">
-                                <SubLabel
-                                    title="See all"
-                                    style={{
-                                        color: "#885FFF",
-                                    }}
-                                />
-                            </Container>
-                            <Container>
-                                <Image
-                                    src={rightArrowPurpleIcon}
-                                    size={14}
-                                    style={{ color: "red" }}
-                                />
-                            </Container>
-                        </Row>
-                    </Row>
+                    <SectionLabel title="Popular Categories" sub="See all" />
                     <Container className="grid grid-cols-2 gap-3">
                         <PopularCategoriesContent />
                     </Container>
+
+                    <SectionLabel title="Trending Experiences" sub="See all" />
+                    <RecentContent data={trendingData} />
                 </Col>
             </ScreenContainer>
         </>
