@@ -1,17 +1,18 @@
 .main-container {
     display: flex;
-    flex: 1;       
+    flex: 1;
 }
 
-.navbar-container {    
+.navbar-container {
     height: 70px;
     flex: 1;
     width: 100%;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
 }
 
-.screen-container {    
+.screen-container {
     display: flex;
+    flex-direction: column;
     flex: 1;
     padding: 10px 20px;
 }

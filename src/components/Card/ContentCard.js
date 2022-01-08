@@ -5,10 +5,12 @@ import { totalUsersFormat } from "../../helper/textHelper";
 import Image from "../Image";
 import { Label, SubLabel } from "../Label";
 import { rightArrowIcon } from "../../assets/icons";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const ContentCard = ({ data }) => {
+    const history = useHistory();
     return (
-        <Card>
+        <Card onClick={() => history.push(`/experience/${data.id}`)}>
             <Row className="flex items-center">
                 <Col className="flex-[0.5]">
                     <Image

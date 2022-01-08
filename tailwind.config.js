@@ -17,7 +17,9 @@ module.exports = {
       'gray-light': '#BEBEC2',
       'white': '#FCFCFC',
       'text-black': '#33373B',
-      'text-gray': '#6F6E73'      
+      'text-gray': '#6F6E73',
+      'accentpurple': '#E5D0FF',
+      'navbar-gray': '#F5F5F5'
     },
     borderRadius: {
       small: "6px",

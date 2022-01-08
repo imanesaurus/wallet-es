@@ -1,7 +1,9 @@
 import React from "react";
+import { Switch } from "react-router-dom";
 import { Col } from "reactstrap";
 import { Navbar } from "../components/Navbar";
-import Home from "../screens/Home";
+import { routes } from "../routes";
+import { AppRoute } from "../routes/route";
 import MainContainer from "./Container/MainContainer";
 
 export const HomeLayout = () => {
@@ -9,7 +11,16 @@ export const HomeLayout = () => {
         <MainContainer>
             <Col className="w-100">
                 <Navbar />
-                <Home />
+                <Switch>
+                    {routes.map((route, id) => (
+                        <AppRoute
+                            key={id}
+                            path={route.path}
+                            component={route.component}
+                            {...route}
+                        />
+                    ))}
+                </Switch>
             </Col>
         </MainContainer>
     );

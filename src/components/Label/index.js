@@ -11,10 +11,12 @@ export const Label = ({ title, style }) => {
     );
 };
 
-export const SubLabel = ({ title, style }) => {
+export const SubLabel = ({ title, style, textColor }) => {
     return (
         <div
-            className="text-sm font-normal text-[text-gray]"
+            className={`text-sm font-normal text-${
+                textColor ? textColor : "[text-gray]"
+            }`}
             style={{ ...style }}
         >
             {title}
