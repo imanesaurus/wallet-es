@@ -1,0 +1,10 @@
+export const frameIcon = require("./frame.png");
+export const backIcon = require("./back.png");
+export const notificationIcon = require("./notification.png");
+export const filterIcon = require("./filter.png");
+export const settingsIcon = require("./settings.png");
+export const profileIcon = require("./profileImg.png");
+export const arrowBottomIcon = require("./arrowBottom.png");
+export const searchIcon = require("./search.png");
+export const rightArrowIcon = require("./right-arrow.png");
+export const rightArrowPurpleIcon = require("./right-arrow-purple.png");
