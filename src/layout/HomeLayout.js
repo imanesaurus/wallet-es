@@ -9,7 +9,7 @@ import MainContainer from "./Container/MainContainer";
 export const HomeLayout = () => {
     return (
         <MainContainer>
-            <Col className="w-100">
+            <Col className="w-screen sm:w-full">
                 <Navbar />
                 <Switch>
                     {routes.map((route, id) => (

@@ -12,7 +12,7 @@ import { AccountSelector } from "./component/AccountSelector";
 export const Navbar = () => {
     const history = useHistory();
     return (
-        <div className="navbar-container w-screen">
+        <div className="navbar-container w-screen sm:w-full">
             <div className="flex h-full justify-center">
                 <Buttons
                     onClick={() => history.goBack()}
@@ -21,7 +21,7 @@ export const Navbar = () => {
                     icon={backIcon}
                 />
                 <Buttons
-                    onClick={() => history.push("/home")}
+                    onClick={() => history.replace("/home")}
                     label="home"
                     size={25}
                     icon={frameIcon}
