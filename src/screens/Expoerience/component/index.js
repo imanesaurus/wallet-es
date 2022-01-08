@@ -15,12 +15,16 @@ export const ColorHeader = ({ color }) => {
     );
 };
 
-export const ContentHeader = ({ data }) => {
+export const ContentHeader = ({ data, onShare }) => {
     return (
         <Container>
             <Container className="flex flex-row justify-between">
                 <Image src={data.img} size={75} style={{ marginTop: -50 }} />
-                <Image src={shareIcon} style={{ width: 70 }} />
+                <Image
+                    onClick={onShare}
+                    src={shareIcon}
+                    style={{ width: 70 }}
+                />
             </Container>
             <Label title={data.title} />
             <SubLabel title={data.content} />

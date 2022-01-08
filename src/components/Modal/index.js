@@ -13,8 +13,9 @@ const CustomModal = ({ visible, size, toggleModal, children }) => {
                 justifyContent: "center",
                 borderRadius: "10px",
                 marginTop: 20,
-                maxHeight: "50%",
+                maxHeight: 'fit-content',
                 zIndex: 3,
+                overFlow: 'hidden',
             },
             overlay: {
                 backgroundColor: "rgba(0,0,0,0.5)",

@@ -12,3 +12,7 @@ export const shareIcon = require("./share.png");
 export const openArrowIcon = require("./open-arrow.png");
 export const peopleIcon = require("./people.png");
 export const closeIcon = require("./close.png");
+export const copyIcon = require("./copy.png");
+export const socialDiscordIcon = require("./social_discord.png");
+export const socialTwitterIcon = require("./social_twitter.png");
+export const socialTelegramIcon = require("./social_telegram.png");

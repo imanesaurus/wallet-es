@@ -5,6 +5,7 @@ import { content1, content2 } from "../../assets/images";
 import MainContainer from "../../layout/Container/MainContainer";
 import ScreenContainer from "../../layout/Container/ScreenContainer";
 import { ColorHeader, ContentBody, ContentHeader } from "./component";
+import { ModalShare } from "./component/ModalShare";
 
 const recentDetailsData = [
     {
@@ -38,6 +39,7 @@ const recentDetailsData = [
                 },
             ],
         },
+        url: "https://nearlabs.app/app/docu_ssadsada/2",
     },
     {
         id: "2",
@@ -70,6 +72,7 @@ const recentDetailsData = [
                 },
             ],
         },
+        url: "https://nearlabs.app/app/docu_ssadsada/3",
     },
     {
         id: "3",
@@ -102,6 +105,7 @@ const recentDetailsData = [
                 },
             ],
         },
+        url: "https://nearlabs.app/app/docu_ssadsada/4",
     },
     {
         id: "4",
@@ -134,11 +138,13 @@ const recentDetailsData = [
                 },
             ],
         },
+        url: "https://nearlabs.app/app/docu_ssadsada/5",
     },
 ];
 
 const Experience = (props) => {
     const [activeTab, setActiveTab] = useState(1);
+    const [shareModal, setShareModal] = useState(false);
     const params = props.match.params;
 
     const tabs = [
@@ -155,14 +161,24 @@ const Experience = (props) => {
     ];
 
     const data = recentDetailsData.find((item) => item.id === params.id);
+
+    function handleShare() {
+        setShareModal(!shareModal);
+    }
+
     return (
         <MainContainer>
             <Container className="flex flex-1 flex-col">
                 <ColorHeader color="#E5D0FF" />
                 <ScreenContainer>
-                    <ContentHeader data={data} />
+                    <ContentHeader data={data} onShare={handleShare} />
                 </ScreenContainer>
                 <ContentBody tabs={tabs} activeTab={activeTab} data={data} />
+                <ModalShare
+                    toggleModal={handleShare}
+                    visible={shareModal}
+                    shareLink={data.url}
+                />
             </Container>
         </MainContainer>
     );
