@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "reactstrap";
 import { rightArrowPurpleIcon } from "../../assets/icons";
 import {
@@ -16,7 +16,9 @@ import ContentCard from "../../components/Card/ContentCard";
 import Image from "../../components/Image";
 import { Label, SubLabel } from "../../components/Label";
 import ScreenContainer from "../../layout/Container/ScreenContainer";
+import ModalFilter from "./component/ModalFilter";
 import SearchBarHome from "./component/SearchBar";
+import { SearchBarContainer } from "./component/SearchBarContainer";
 
 const recentData = [
     {
@@ -35,7 +37,85 @@ const recentData = [
     },
 ];
 
+const allExperiences = [
+    {
+        id: 1,
+        title: "Defi Swap",
+        content: "Swap your digital assets",
+        totalUsers: 200,
+        categoryId: 1,
+        img: content1,
+    },
+    {
+        id: 2,
+        title: "Docu Sign",
+        content: "sign smart contracts seamlessly",
+        totalUsers: 1700,
+        categoryId: 2,
+        img: content2,
+    },
+    {
+        id: 3,
+        title: "Mist Exp",
+        content: "Swap your digital assets",
+        totalUsers: 500,
+        categoryId: 2,
+        img: content1,
+    },
+    {
+        id: 4,
+        title: "Great Max",
+        content: "sign smart contracts seamlessly",
+        totalUsers: 2100,
+        categoryId: 3,
+        img: content2,
+    },
+];
+
 const popularCategories = [
+    {
+        id: 1,
+        title: "Exchanges",
+        bgColor: "#EAEFFF",
+        img: category1,
+    },
+    {
+        id: 2,
+        title: "Games",
+        bgColor: "#F5F5F5",
+        img: category2,
+    },
+    {
+        id: 3,
+        title: "Marketplaces",
+        bgColor: "#E2F9F3",
+        img: category3,
+    },
+    {
+        id: 4,
+        title: "Defi",
+        bgColor: "#FFF3EC",
+        img: category4,
+    },
+    {
+        id: 5,
+        title: "Collectibles",
+        bgColor: "#EBF5FF",
+        img: category5,
+    },
+    {
+        id: 6,
+        title: "Utilities",
+        bgColor: "#F0EBFF",
+        img: category6,
+    },
+];
+
+const filterData = [
+    {
+        id: 0,
+        title: "All Experiences",
+    },
     {
         id: 1,
         title: "Exchanges",
@@ -87,40 +167,85 @@ const PopularCategoriesContent = () => {
 };
 
 const Home = () => {
-    return (
-        <ScreenContainer>
-            <Col className="w-full">
-                <SearchBarHome />
-                <Label title="Recent Experiences" />
-                <RecentContent />
+    const [term, setTerm] = useState("");
+    const [showFilterModal, setShowFilterModal] = useState(false);
+    const [filteredExperiences, setFiltered] = useState([...allExperiences]);
 
-                <Row className="flex justify-between items-center">
-                    <Container>
-                        <Label title="Popular Categories" />
-                    </Container>
-                    <Row className="flex items-center">
-                        <Container className="w-10 mr-2">
-                            <SubLabel
-                                title="See all"
-                                style={{
-                                    color: "#885FFF",
-                                }}
-                            />
-                        </Container>
+    function handleSearch(e) {
+        setTerm(e.target.value);
+    }
+
+    function toggleModal() {
+        setShowFilterModal(!showFilterModal);
+    }
+
+    function handleFilter(value) {
+        let currentFilter = [...filteredExperiences];
+        currentFilter = allExperiences.filter((x) =>
+            value.includes(x.categoryId)
+        );
+        setFiltered(currentFilter);
+    }
+
+    let df =
+        filteredExperiences.length > 0 ? filteredExperiences : allExperiences;
+    return (
+        <>
+            <ModalFilter
+                visible={showFilterModal}
+                toggleModal={toggleModal}
+                filterData={filterData}
+                title="Modal"
+                setFilter={handleFilter}
+            />
+            <ScreenContainer>
+                <Col className="w-full">
+                    <SearchBarHome
+                        value={term}
+                        onChange={handleSearch}
+                        onFilterClick={toggleModal}
+                    />
+                    {term && (
+                        <SearchBarContainer
+                            filterActive={showFilterModal}
+                            searchData={df.filter((e) =>
+                                e.title
+                                    .toLocaleLowerCase()
+                                    .includes(term.toLocaleLowerCase())
+                            )}
+                        />
+                    )}
+                    <Label title="Recent Experiences" />
+                    <RecentContent />
+
+                    <Row className="flex justify-between items-center">
                         <Container>
-                            <Image
-                                src={rightArrowPurpleIcon}
-                                size={14}
-                                style={{ color: "red" }}
-                            />
+                            <Label title="Popular Categories" />
                         </Container>
+                        <Row className="flex items-center">
+                            <Container className="w-10 mr-2">
+                                <SubLabel
+                                    title="See all"
+                                    style={{
+                                        color: "#885FFF",
+                                    }}
+                                />
+                            </Container>
+                            <Container>
+                                <Image
+                                    src={rightArrowPurpleIcon}
+                                    size={14}
+                                    style={{ color: "red" }}
+                                />
+                            </Container>
+                        </Row>
                     </Row>
-                </Row>
-                <Container className="grid grid-cols-2 gap-3">
-                    <PopularCategoriesContent />
-                </Container>
-            </Col>
-        </ScreenContainer>
+                    <Container className="grid grid-cols-2 gap-3">
+                        <PopularCategoriesContent />
+                    </Container>
+                </Col>
+            </ScreenContainer>
+        </>
     );
 };
 

@@ -3,7 +3,7 @@ import { Input, InputGroup, InputGroupText, Row } from "reactstrap";
 import { filterIcon, searchIcon } from "../../../assets/icons";
 import Image from "../../../components/Image";
 
-const SearchBar = () => {
+const SearchBar = ({ value, onChange, onFilterClick }) => {
     return (
         <Row className="flex flex-1 justify-between">
             <InputGroup
@@ -19,11 +19,14 @@ const SearchBar = () => {
                     <Input
                         className="bg-[#F5F5F5]"
                         placeholder="Search experiences"
+                        value={value}
+                        onChange={onChange}
                     />
                 </InputGroupText>
             </InputGroup>
 
             <img
+                onClick={onFilterClick}
                 src={filterIcon}
                 alt="filter-icon"
                 className="pr-2 object-contain"

@@ -21,10 +21,11 @@ module.exports = {
       'accentpurple': '#E5D0FF',
       'navbar-gray': '#F5F5F5'
     },
-    borderRadius: {
+    borderRadius: { 
       small: "6px",
       medium: "10px",
       large: "14px",
+      full: '50%',
     },
   },
   plugins: [],

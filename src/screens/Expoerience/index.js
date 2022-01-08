@@ -71,6 +71,70 @@ const recentDetailsData = [
             ],
         },
     },
+    {
+        id: "3",
+        title: "Mist Exp",
+        content: "sign smart contracts seamlessly",
+        totalUsers: 500,
+        img: content2,
+        category: {
+            id: 5,
+            title: "Collectibles",
+        },
+        description:
+            "Content 2 e all your contracts and documents safely, securely, anywhere, anytime- paperlessly. ",
+        activities: {
+            count: 2,
+            list: [
+                {
+                    id: 1,
+                    name: "maxwll.near",
+                    profileImg: profileIcon,
+                    message: "request to sign the contract",
+                    createdAt: "3 days ago",
+                },
+                {
+                    id: 2,
+                    name: "johndoe.near",
+                    profileImg: profileIcon,
+                    message: "signed the contract successfully",
+                    createdAt: "2 days ago",
+                },
+            ],
+        },
+    },
+    {
+        id: "4",
+        title: "Great Max",
+        content: "sign smart contracts seamlessly",
+        totalUsers: 2100,
+        img: content2,
+        category: {
+            id: 5,
+            title: "Collectibles",
+        },
+        description:
+            "Content 2 e all your contracts and documents safely, securely, anywhere, anytime- paperlessly. ",
+        activities: {
+            count: 2,
+            list: [
+                {
+                    id: 1,
+                    name: "maxwll.near",
+                    profileImg: profileIcon,
+                    message: "request to sign the contract",
+                    createdAt: "3 days ago",
+                },
+                {
+                    id: 2,
+                    name: "johndoe.near",
+                    profileImg: profileIcon,
+                    message: "signed the contract successfully",
+                    createdAt: "2 days ago",
+                },
+            ],
+        },
+    },
 ];
 
 const Experience = (props) => {

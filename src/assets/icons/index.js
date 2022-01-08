@@ -10,4 +10,5 @@ export const rightArrowIcon = require("./right-arrow.png");
 export const rightArrowPurpleIcon = require("./right-arrow-purple.png");
 export const shareIcon = require("./share.png");
 export const openArrowIcon = require("./open-arrow.png");
-export const peopleIcon = require("./people.png")
+export const peopleIcon = require("./people.png");
+export const closeIcon = require("./close.png");
