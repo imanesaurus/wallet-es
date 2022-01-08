@@ -66,7 +66,7 @@ export const ContentBody = ({ tabs = [], activeTab, data }) => {
             <ContainerColumn>
                 <Badge className="w-auto self-center px-2 py-1 mt-1 rounded-medium bg-navbar-gray">
                     <SubLabel
-                        title="12 Activity Found"
+                        title={`${data.activities.count} Activity Found`}
                         style={{ color: "gray" }}
                     />
                 </Badge>
